@@ -43,14 +43,16 @@ const SearchForCountry = () => {
           <div className="countryInformation">
             <div>
               <h2>{countryData.country}</h2>
+              <div className='countryDetails'>
               <p>{countryData.continent}</p>
               <p>
                 Population:<span>{countryData.population}</span>
-              </p></div>
-            <div>
+              </p>
+              </div>
             </div>
             <img src={countryData.countryInfo?.flag} />
           </div>
+
           <section className="countryToday">
             <h2>Today</h2>
             <div className="todayInformation">

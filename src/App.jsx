@@ -29,6 +29,14 @@ function App() {
           <Route path="/tips" element={<Tips />} />
         </Routes>
 
+        <footer className="footer">
+
+          <div>made with <i class="fa-solid fa-heart"></i></div>
+
+
+        </footer>
+
+        <p>Create by <span className="name-reference">Marcos Diaz</span></p>
       </div>
     </HashRouter>
 

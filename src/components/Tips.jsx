@@ -8,7 +8,9 @@ import faseMask from '../assets/video/faceMask.mp4'
 const Tips = () => {
   return (
     <div className='Component-Tips'>
-      <h2 className='tips-title'>tips to protect yourself <br /> against covid-19</h2>
+      <div className="tips-header">
+        <h2 className='tips-title'>tips to protect yourself <br /> against covid-19</h2>
+      </div>
       <div className="cardsTips">
         <CardTip title={'Hand Washing'} description={'Wash your hands frequently. Use soap and water or an alcohol-based hand sanitizer.'} video={sanitizehands} />
         <CardTip title={'Get Vaccinated'} description={'Get vaccinated when it\'s your turn. Follow the vaccination guidelines of your local authorities.'} video={vaccine} CardTipReverse={'CardTipReverse'} />

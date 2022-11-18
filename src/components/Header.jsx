@@ -1,6 +1,6 @@
 import React from "react";
 import useApiResponse from "../hooks/useApiResponse";
-import video from '../assets/video/covidWallpaper.mp4'
+import video from '../assets/video/covidWallPaper.mp4'
 const Header = () => {
   const [apiData] = useApiResponse();
 

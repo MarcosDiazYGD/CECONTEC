@@ -50,7 +50,7 @@ body {
 
 .Component-Header {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -123,6 +123,10 @@ body {
   text-transform: capitalize;
 }
 
+.Component-SearchForCountry {
+  padding: 3rem 8rem;
+}
+
 .containerInputSearch {
   padding: 2rem;
   display: flex;
@@ -132,6 +136,7 @@ body {
 }
 
 .containerInputSearch h2 {
+  text-transform: capitalize;
   font-size: 35px;
   margin-bottom: 2rem;
   color: rgb(212, 186, 186);
@@ -174,6 +179,43 @@ body {
   box-shadow: 0 0 20px lightblue;
 }
 
+.component-Home {
+  padding: 2rem 8rem;
+}
+
+.component-Home h2{
+  font-size: 50px;
+  color: var(--title-color);
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.component-Home p {
+  font-size: 25px;
+  color: var(--text-color);
+}
+
+.component-Home ul {
+  padding-left: 4rem;
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.home-texts h2 {
+  margin: 4rem 0;
+}
+
+.home-texts p {
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.home-texts ul {
+  list-style: none;
+  margin:  2rem 0 ;
+}
+
+
 .countryInformation {
   grid-area: countryDetails;
   text-align: left;
@@ -181,6 +223,16 @@ body {
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
+}
+
+.countryInformation h2 {
+  text-align: center;
+}
+
+.countryDetails {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .countryToday {
@@ -209,7 +261,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10rem 0;
+  margin: 8rem 0;
   gap: 3rem;
 }
 
@@ -223,9 +275,6 @@ body {
 }
 
 .tips-title {
-  position: relative;
-  height: 100vh;
-  top: 200px;
   font-size: 70px;
   text-align: center;
   color: var(--second-color);
@@ -236,6 +285,14 @@ body {
   padding: 2rem;
 }
 
+.tips-header {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cardsTips {
   widows: 100%;
   height: 100%;
@@ -244,6 +301,7 @@ body {
 }
 
 .CardTip {
+  padding:3rem 8rem;
   width: 100%;
   display: flex;
   margin-bottom: 25vh;
@@ -279,4 +337,30 @@ body {
 .card-container-info p{
   font-size: 30px;
   color: var(--text-color);
+}
+
+.footer {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.fa-heart {
+  color: var(--title-color);
+}
+
+.name-reference {
+  color: var(--title-color);
+}
+.searchCountry-home {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: var(--second-color);
 }
