@@ -3,100 +3,87 @@ import React, { useEffect, useState } from "react";
 
 const SearchForCountry = () => {
   const [countryData, setCountryData] = useState({});
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(null);
+  const [isLokingFor, setIsLokingFor] = useState(false);
 
   const submit = (e) => {
     e.preventDefault();
 
     axios
       .get(`https://disease.sh/v3/covid-19/countries/${inputValue}`)
-      .then((res) => setCountryData(res.data));
+      .then((res) => {
+        setCountryData(res.data);
+        setIsLokingFor(true);
+      });
     setCountryData({});
   };
   return (
     <div className="Component-SearchForCountry">
       <form onSubmit={submit}>
-        <label htmlFor="countryName">
-          <h2>Search by Country</h2>
-        </label>
         <div className="containerInputSearch">
-          <input
-            className="inputSearch"
-            type="text"
-            name=""
-            id="countryName"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-          />
-
-          <button className="buttonSearch">search</button>
+          <label htmlFor="countryName">
+            <h2>Search by Country</h2>
+          </label>
+          <div>
+            <input
+              className="inputSearch"
+              type="text"
+              name=""
+              id="countryName"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <button className="buttonSearch">search</button>
+          </div>
         </div>
       </form>
 
-      <div className="resultsOfSearch">
-        <div>
-          <h2>{countryData.country}</h2>
-          <div className="CountryDetails">
-            <p>{countryData.continent}</p>
-            <p>
-              Population:<span>{countryData.population}</span>
-            </p>
-          </div>
-          <div>
+      {isLokingFor ? (
+        <div className="resultsOfSearch">
+          <div className="countryInformation">
+            <div>
+              <h2>{countryData.country}</h2>
+              <p>{countryData.continent}</p>
+              <p>
+                Population:<span>{countryData.population}</span>
+              </p></div>
+            <div>
+            </div>
             <img src={countryData.countryInfo?.flag} />
           </div>
-        </div>
-        <div>
-          
-          <section>
+          <section className="countryToday">
             <h2>Today</h2>
-            <div>
-              <p>
-                Today cases: <span>{countryData.todayCases}</span>
-              </p>
-              <p>
-                Today deaths: <span>{countryData.todayDeaths}</span>
-              </p>
-              <p>
-                Today recovered: <span>{countryData.todayRecovered}</span>
-              </p>
+            <div className="todayInformation">
+              <p>Today cases: <span>{countryData.todayCases}</span></p>
+              <p>Today deaths: <span>{countryData.todayDeaths}</span></p>
+              <p>Today recovered: <span>{countryData.todayRecovered}</span></p>
             </div>
           </section>
 
-          <section>
+          <section className="generalInformation">
             <h2>information</h2>
             <div>
-              <p>
-                Cases: <span>{countryData.cases}</span>
-              </p>
+              <p>Cases: <span>{countryData.cases}</span></p>
             </div>
 
             <div>
-              <p>
-                Deaths: <span>{countryData.deaths}</span>
-              </p>
+              <p>Deaths: <span>{countryData.deaths}</span></p>
             </div>
 
             <div>
-              <p>
-                Recovered: <span>{countryData.recovered}</span>
-              </p>
+              <p>Recovered: <span>{countryData.recovered}</span></p>
             </div>
 
             <div>
-              <p>
-                Active: <span>{countryData.active}</span>
-              </p>
+              <p>Active: <span>{countryData.active}</span></p>
             </div>
 
             <div>
-              <p>
-                Critical: <span>{countryData.critical}</span>
-              </p>
+              <p>Critical: <span>{countryData.critical}</span></p>
             </div>
           </section>
 
-          <section>
+          <section className="informationPerMillion">
             <h2>Per one million</h2>
             <div>
               <p>
@@ -126,7 +113,7 @@ const SearchForCountry = () => {
             </div>
           </section>
 
-          <section>
+          <section className="informationPerPeople">
             <h2>Per People</h2>
             <div>
               <p>
@@ -141,9 +128,13 @@ const SearchForCountry = () => {
               </p>
             </div>
           </section>
-
         </div>
-      </div>
+      ) : (
+        <div className="containerNoSearch">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h3 className="messajeSearch">Search for a country please</h3>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,14 +1,30 @@
 import React from "react";
 import useApiResponse from "../hooks/useApiResponse";
+import video from '../assets/video/covidWallpaper.mp4'
 const Header = () => {
   const [apiData] = useApiResponse();
 
   return (
-    <div className="Component-Header">
-      <div className="mainInfo">
+    <header className="Component-Header">
+      <div className="home">
+
+        <div className="video">
+          <video autoPlay loop onLoadedMetadata="this.muted=true" >
+            <source src={video} type="video/mp4"/>
+          </video>
+
+        </div>
+
+        <div className="overlay"></div>
+
+        <div className="content">
+          <p>All the information about covid 19</p>
+        </div>
+
+        <div className="mainInfo">
         <section>
           <h2>
-            updated <br />
+            Updated <br />
             <span>{apiData.updated}</span>
           </h2>
         </section>
@@ -27,7 +43,12 @@ const Header = () => {
           </h2>
         </section>
       </div>
-    </div>
+      </div>
+
+
+
+ 
+    </header>
   );
 };
 

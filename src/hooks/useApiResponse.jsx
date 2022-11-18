@@ -9,7 +9,6 @@ const useApiResponse = () => {
     axios
       .get(`https://disease.sh/v3/covid-19/all`)
       .then((res) => setApiData(res.data));
-      console.log(apiData);
   }, []);
 
   return [apiData]
